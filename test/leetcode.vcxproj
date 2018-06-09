@@ -101,8 +101,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="the_sum_of_two_int.cpp" />
-    <ClCompile Include="reverse_integer.cpp" />  
+    <ClCompile Include="leetcode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="leet_code.h" />
