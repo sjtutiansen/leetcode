@@ -6,16 +6,18 @@ and you may not use the same element twice.
 */
 
 #include "leet_code.h"
+//test
 
-int comp(const void*a,const void*b)//用来做比较的函数。  
+int comp(const void* a,const void* b)  /*用来做比较的函数。  */
 {  
     return *(int*)a-*(int*)b;  
 }
 
 int* twoSum(int* nums, int numsSize, int target) {
-    int temp[numsSize];
+	int *testtemp = new int[numsSize];
+    int *temp = (int*)malloc(sizeof(int)*numsSize);
     for(int k = 0;k < numsSize;++k) temp[k] = nums[k];
-    qsort(nums,numsSize,sizeof(int),comp);//调用qsort排序
+    qsort(nums,numsSize,sizeof(int),comp);           /*调用qsort排序*/
     int* result = (int*)malloc(sizeof(int)*2);
     int i = 0, j = numsSize-1;
     while(i < j){
@@ -35,7 +37,18 @@ int* twoSum(int* nums, int numsSize, int target) {
             break;
         }
     }
+    free(temp);
     *result = i;
     *(result+1) = j;
     return result;   
+}
+
+int test_two_sum() {
+	int nums[3] = { 3,2,3 };
+	int numsSize = 3, target = 6;
+	int* ans;
+	ans = twoSum(nums, numsSize, target);
+	printf("%d %d", ans[0], ans[1]);
+	free(ans);
+	return 0;
 }
