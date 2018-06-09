@@ -1,5 +1,10 @@
 #include "leet_code.h"
+#include <iostream>
 #include <limits.h>
+#include <string>
+#include <vector>
+
+using namespace std;
 
 //No.1 the sum of two int
 int comp(const void* a,const void* b)  /*用来做比较的函数。  */
@@ -185,5 +190,41 @@ int test_No13_romanToInt() {
 	int b = 0;
 	b = romanToInt(a);
 	printf("%s is %d", a, b);
+	return 0;
+}
+
+//No.14 Longest Common Prefix
+string longestCommonPrefix(vector<string>& strs) {
+	string result = "";
+	if (strs.empty()) return result;
+	if (strs.size() == 1) {
+		result = strs[0];
+		return result;
+	}
+
+	int Index = 0;
+	bool stopFlag = true;
+
+	while (stopFlag) {
+		for (int i = 0; i < strs.size() - 1; ++i) {
+			if ((strs[i][Index] != strs[i + 1][Index]) || (Index > strs[i].length() - 1) || (Index > strs[i + 1].length() - 1))
+			{
+				stopFlag = false;
+				break;
+			}
+		}
+		if (stopFlag) ++Index;
+	}
+	result = strs[0].substr(0, Index);
+	return result;
+}
+
+int test_No14_longestCommonPrefix() {
+	vector<string> testString = { "flower", "flow", "flight" };
+	/*testString.push_back("flower");
+	testString.push_back("flow");
+	testString.push_back("flght");*/
+	string result = longestCommonPrefix(testString);
+	cout<<"the longest common prefix is: "<<result<<endl;
 	return 0;
 }
