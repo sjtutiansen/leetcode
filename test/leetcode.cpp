@@ -1,9 +1,4 @@
 #include "leet_code.h"
-#include <iostream>
-#include <limits.h>
-#include <string>
-#include <vector>
-
 using namespace std;
 
 //No.1 the sum of two int
@@ -226,5 +221,115 @@ int test_No14_longestCommonPrefix() {
 	testString.push_back("flght");*/
 	string result = longestCommonPrefix(testString);
 	cout<<"the longest common prefix is: "<<result<<endl;
+	return 0;
+}
+
+//No.20 Valid Parentheses
+bool isValid(string s) {
+	if (s.empty()) return true;
+	stack<char> container;
+	int i = 0;
+	while (i < s.length()) {
+		if (s[i] == '(' || s[i] == '[' || s[i] == '{') {
+			container.push(s[i]);
+			++i;
+		}
+		else if(!container.empty()){
+		if ((s[i] == ')') && (container.top() == '(')) {
+			++i;
+			container.pop();
+		}
+		else if ((s[i] == ']') && (container.top() == '[')) {
+			++i;
+			container.pop();
+		}
+		else if ((s[i] == '}') && (container.top() == '{')) {
+			++i;
+			container.pop();
+		}
+		else return false;
+		}		
+		else return false;
+	}
+	if (container.empty()) return true;
+	else return false;
+}
+
+int test_No20_Valid_Parentheses() {
+	string s = "]";
+	bool result = isValid(s);
+	if (result) cout << s << " are valid Parentheses" << endl;
+	else cout<< s << " aren't valid Parentheses" << endl;
+	return 0;
+}
+
+//No.21 Merge Two Sorted Lists
+ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+	ListNode* head = nullptr;
+	ListNode* temp = nullptr;
+	if (l1 == nullptr && l2 == nullptr) return nullptr;
+	if (l1 == nullptr && l2 != nullptr) return l2;
+	if (l1 != nullptr && l2 == nullptr) return l1;
+	if (l1->val > l2->val) {
+		head = l2;
+		l2 = l2->next;
+	}
+	else {
+		head = l1;
+		l1 = l1->next;
+	}
+	temp = head;
+	while (l1 != nullptr && l2 != nullptr) {
+		if (l1->val > l2->val) {
+			temp->next = l2;
+			temp = temp->next;
+			l2 = l2->next;
+		}
+		else {
+			temp->next = l1;
+			temp = temp->next;
+			l1 = l1->next;
+		}
+	}
+	if (l1 == nullptr) {
+		temp->next = l2;
+	}
+	else temp->next = l1;
+	temp = nullptr;
+	return head;
+}
+
+//No.26 Remove Duplicates from Sorted Array
+int removeDuplicates(vector<int>& nums) {
+	if (nums.empty()) return 0;
+	if (nums.size() == 1) return 1;
+	int new_index = 0;
+	int old_index = 1;
+	while (old_index < nums.size()) {
+		if (nums[old_index] == nums[new_index]) {
+			old_index++;
+		}
+		else {
+			new_index++;
+			nums[new_index] = nums[old_index];
+			old_index++;
+		}
+	}
+	return new_index + 1;
+}
+
+int test_No26_removeDuplicates() {
+	vector<int> nums = { 1,1,3,4,5,5,6,6,9,9 };
+	cout << "nums: ";
+	for (int i = 0; i < nums.size(); ++i) {
+		cout << nums[i] << ",";
+	}
+	cout << endl;
+	int newLength = removeDuplicates(nums);
+	cout << "remove Duplicates nums:";
+	for (int i = 0; i < newLength; ++i) {
+		cout << nums[i] << ",";
+	}
+	cout << endl;
 	return 0;
 }
