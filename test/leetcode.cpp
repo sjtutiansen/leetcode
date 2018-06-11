@@ -333,3 +333,34 @@ int test_No26_removeDuplicates() {
 	cout << endl;
 	return 0;
 }
+
+//No.27 Remove Element
+int removeElement(vector<int>& nums, int val) {
+        int index = 0;
+        int Nsize = nums.size();
+        if(Nsize == 0) return 0;
+        for(int i = 0;i < Nsize;++i){
+            if(nums[i] != val) {
+                nums[index] = nums[i];
+                index++;
+            }
+        }
+        return index;      
+}
+
+int test_No27_removeElement()
+{
+	vector<int> nums = { 1,1,3,4,5,5,6,6,9,9 };
+	cout << "nums: ";
+	for (int i = 0; i < nums.size(); ++i) {
+		cout << nums[i] << ",";
+	}
+	cout << endl;
+	int newLength = removeElement(nums,5);
+	cout << "remove Duplicates nums:";
+	for (int i = 0; i < newLength; ++i) {
+		cout << nums[i] << ",";
+	}
+	cout << endl;
+	return 0;
+}

@@ -1,3 +1,6 @@
+#ifndef LEET_CODE_H
+#define LEET_CODE_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
@@ -35,3 +38,8 @@ ListNode* mergeTwoLists(ListNode* l1, ListNode* l2);
 
 //No.26 Remove Duplicates from Sorted Array
 int test_No26_removeDuplicates();
+
+//No.27 Remove Element
+int test_No27_removeElement();
+
+#endif
