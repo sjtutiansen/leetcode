@@ -42,4 +42,7 @@ int test_No26_removeDuplicates();
 //No.27 Remove Element
 int test_No27_removeElement();
 
+//No.28 Implement strStr()
+int strStr(string haystack, string needle);
+
 #endif

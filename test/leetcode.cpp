@@ -364,3 +364,25 @@ int test_No27_removeElement()
 	cout << endl;
 	return 0;
 }
+
+//No.28 Implement strStr()
+int strStr(string haystack, string needle) {
+	bool flag = true;
+	if(needle.length() == 0) return 0;
+	if(haystack.length() == 0) return -1;
+	int i = 0;
+	for(;i < haystack.length();++i){
+		if(haystack[i] == needle[0]){
+			flag = true;
+			for(int j = 0;j < needle.length();++j){
+				if(haystack[i + j] != needle[j]) {
+					flag = false;
+					break;
+				}
+			}
+			if(flag) return i;
+		}
+		else flag = false;
+	}   
+	if(!flag) return -1;
+}
