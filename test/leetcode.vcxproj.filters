@@ -18,12 +18,12 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="the_sum_of_two_int.cpp">
+    <ClCompile Include="leetcode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="leet_code.h">
+    <ClInclude Include="leetcode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
