@@ -1,5 +1,5 @@
-#ifndef LEET_CODE_H
-#define LEET_CODE_H
+#ifndef _LEETCODE_H_
+#define _LEETCODE_H_
 
 #include <stdio.h>
 #include <stdlib.h>

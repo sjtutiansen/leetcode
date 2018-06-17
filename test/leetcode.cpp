@@ -1,4 +1,4 @@
-#include "leet_code.h"
+#include "leetcode.h"
 using namespace std;
 
 //No.1 the sum of two int
@@ -181,7 +181,7 @@ int romanToInt(char* s) {
 }
 
 int test_No13_romanToInt() {
-	char* a = "VIII";
+	char a[5] = {'V','I','I','I','\0'};
 	int b = 0;
 	b = romanToInt(a);
 	printf("%s is %d", a, b);
