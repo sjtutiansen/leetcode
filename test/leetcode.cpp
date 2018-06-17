@@ -1,4 +1,4 @@
-#include "leet_code.h"
+#include "leetcode.h"
 using namespace std;
 
 //No.1 the sum of two int
