@@ -381,8 +381,7 @@ int strStr(string haystack, string needle) {
 				}
 			}
 			if(flag) return i;
-		}
-		else flag = false;
+		}		
 	}   
-	if(!flag) return -1;
+	return -1;
 }
