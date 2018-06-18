@@ -385,3 +385,13 @@ int strStr(string haystack, string needle) {
 	}   
 	return -1;
 }
+
+//No.35 Search Insert Position
+int searchInsert(vector<int>& nums, int target) {
+	int i = 0;
+	if(nums.size() == 0) return 0;
+	for(;i < nums.size();++i){
+		if(target <= nums[i]) return i;
+	}
+	return i;      
+}
